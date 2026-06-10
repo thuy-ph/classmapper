@@ -30,6 +30,9 @@ export default function HistoryScreen() {
           weekLabel: exportingEntry.weekLabel,
           fileName: `classmapper-${exportingEntry.weekLabel.replace(/\s+/g, '-').toLowerCase()}.pdf`,
         });
+      } catch (error) {
+        console.error('PDF export failed:', error);
+        alert('Sorry, the PDF could not be created. Please try again.');
       } finally {
         setExportingEntry(null);
       }

@@ -1,7 +1,10 @@
 // Exports a DOM node (the seating map + summary) to a colourful A4 PDF.
 
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+// html2canvas-pro (rather than html2canvas) is required because Tailwind v4's
+// default color palette uses oklch()/oklab(), which the original html2canvas
+// can't parse and throws on.
+import html2canvas from 'html2canvas-pro';
 
 export async function exportMapToPdf(node, { classroomName, teacherName, weekLabel, fileName }) {
   const canvas = await html2canvas(node, {

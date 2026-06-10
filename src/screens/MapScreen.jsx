@@ -79,12 +79,17 @@ export default function MapScreen() {
 
   const handleExportPdf = async () => {
     if (!mapRef.current) return;
-    await exportMapToPdf(mapRef.current, {
-      classroomName: settings.classroomName,
-      teacherName: settings.teacherName,
-      weekLabel,
-      fileName: `classmapper-${weekLabel.replace(/\s+/g, '-').toLowerCase()}.pdf`,
-    });
+    try {
+      await exportMapToPdf(mapRef.current, {
+        classroomName: settings.classroomName,
+        teacherName: settings.teacherName,
+        weekLabel,
+        fileName: `classmapper-${weekLabel.replace(/\s+/g, '-').toLowerCase()}.pdf`,
+      });
+    } catch (error) {
+      console.error('PDF export failed:', error);
+      alert('Sorry, the PDF could not be created. Please try again.');
+    }
   };
 
   return (
