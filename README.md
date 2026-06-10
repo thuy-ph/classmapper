@@ -2,6 +2,10 @@
 
 A weekly classroom seating chart generator for kindergarten/primary school teachers — built with React, Vite, and Tailwind CSS. 100% static, no backend; everything is stored in your browser's localStorage.
 
+🔗 **Live app:** https://thuy-ph.github.io/classmapper/
+
+This project was made for a friend who teaches kindergarten, to help her plan weekly seating charts for her classroom.
+
 ## Features
 
 - 🏫 **Class Roster** — track each student's gender, attention span, energy level, social style, academic pace, behavior, special needs, and peer relationships.
@@ -28,4 +32,4 @@ npm run build
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the app and deploys `dist/` to the `gh-pages` branch via GitHub Actions. Enable GitHub Pages in the repo settings with source set to "Deploy from branch" → `gh-pages`.
 
-The app will be live at `https://<your-username>.github.io/classmapper/`.
+The app is live at https://thuy-ph.github.io/classmapper/.
