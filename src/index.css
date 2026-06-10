@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", system-ui, sans-serif;
+
+  --color-pastel-yellow: #fff6d6;
+  --color-pastel-green: #d9f6e6;
+  --color-pastel-pink: #ffe1ec;
+  --color-pastel-blue: #dff1ff;
+  --color-pastel-lavender: #ece2ff;
+  --color-pastel-orange: #ffe7d1;
+
+  --color-brand-50: #fdf5ff;
+  --color-brand-100: #f6e3ff;
+  --color-brand-200: #ecc8ff;
+  --color-brand-300: #dca0ff;
+  --color-brand-400: #c56bff;
+  --color-brand-500: #a855f7;
+  --color-brand-600: #9333ea;
+  --color-brand-700: #7e22ce;
+}
+
+* {
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #fdf6ff 0%, #f0f9ff 50%, #fef9f0 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-200);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fade-in {
+  animation: fadeIn 0.35s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
