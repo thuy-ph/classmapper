@@ -24,6 +24,8 @@ function formatWeekLabel(date) {
 export default function MapScreen() {
   const [students] = useState(getStudents());
   const [layout, setLayout] = useState(getLayout());
+  const [rowsInput, setRowsInput] = useState(String(layout.rows));
+  const [colsInput, setColsInput] = useState(String(layout.cols));
   const [weekLabel, setWeekLabel] = useState(formatWeekLabel(new Date()));
   const [result, setResult] = useState(null);
   const [generating, setGenerating] = useState(false);
@@ -137,8 +139,13 @@ export default function MapScreen() {
               type="number"
               min={1}
               max={8}
-              value={layout.rows}
-              onChange={(e) => updateLayout({ rows: Math.max(1, Math.min(8, Number(e.target.value) || 1)) })}
+              value={rowsInput}
+              onChange={(e) => setRowsInput(e.target.value)}
+              onBlur={(e) => {
+                const rows = Math.max(1, Math.min(8, Number(e.target.value) || 1));
+                setRowsInput(String(rows));
+                updateLayout({ rows });
+              }}
               className="w-24 px-3 py-2 rounded-xl border-2 border-brand-100 focus:border-brand-400 focus:outline-none"
             />
           </div>
@@ -148,8 +155,13 @@ export default function MapScreen() {
               type="number"
               min={1}
               max={8}
-              value={layout.cols}
-              onChange={(e) => updateLayout({ cols: Math.max(1, Math.min(8, Number(e.target.value) || 1)) })}
+              value={colsInput}
+              onChange={(e) => setColsInput(e.target.value)}
+              onBlur={(e) => {
+                const cols = Math.max(1, Math.min(8, Number(e.target.value) || 1));
+                setColsInput(String(cols));
+                updateLayout({ cols });
+              }}
               className="w-24 px-3 py-2 rounded-xl border-2 border-brand-100 focus:border-brand-400 focus:outline-none"
             />
           </div>
