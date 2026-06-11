@@ -24,8 +24,5 @@ npm run dev
 npm run build
 ```
 
-## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the app and deploys `dist/` to the `gh-pages` branch via GitHub Actions. Enable GitHub Pages in the repo settings with source set to "Deploy from branch" → `gh-pages`.
-
-The app will be live at `https://<your-username>.github.io/classmapper/`.
+The app is live at `https://thuy-ph.github.io/classmapper/`.
